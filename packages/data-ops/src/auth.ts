@@ -22,6 +22,9 @@ export function createBetterAuth(
                 accessType: "offline", 
             },
         },
+        trustedOrigins: ['http://localhost:3000', 'https://data-service-stage.alazar-genene.workers.dev'],
+        basePath: `https://data-service-stage.alazar-genene.workers.dev/api/auth`
+
     });
 }
 
