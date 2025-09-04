@@ -22,6 +22,13 @@
       "when": 1756846786251,
       "tag": "0002_smiling_onslaught",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1757015555449,
+      "tag": "0003_peaceful_white_tiger",
+      "breakpoints": true
     }
   ]
 }

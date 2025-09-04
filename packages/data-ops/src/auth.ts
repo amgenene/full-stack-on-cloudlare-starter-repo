@@ -17,7 +17,9 @@ export function createBetterAuth(
         socialProviders: {
             google: {
                 clientId: google?.clientId ?? "",
-                clientSecret: google?.clientSecret ?? ""
+                clientSecret: google?.clientSecret ?? "",
+                prompt: "select_account",
+                accessType: "offline", 
             },
         },
     });
@@ -31,10 +33,12 @@ export function getAuth(google: {clientId: string; clientSecret: string}): Retur
             user,
             session,
             account,
-            verification
+            verification,
+
         },
     }),
     google,
+
 );
 return auth;
 }
