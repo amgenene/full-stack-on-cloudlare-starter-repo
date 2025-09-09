@@ -90,16 +90,16 @@
 					}
 				]
 			},
-			"migrations": [
-				// {
-				// 	"tag": "v1",
-				// 	"new_classes": ["EvaluationScheduler"]
-				// },
-				{
-					"tag": "v10",
-					"new_sqlite_classes": ["LinkClickTracker"]
-				}
-			],
+			// "migrations": [
+			// 	// {
+			// 	// 	"tag": "v1",
+			// 	// 	"new_classes": ["EvaluationScheduler"]
+			// 	// },
+			// 	{
+			// 		"tag": "v10",
+			// 		"new_sqlite_classes": ["LinkClickTracker"]
+			// 	}
+			// ],
 			"ai": {
 				"binding": "AI"
 			},
