@@ -9,7 +9,7 @@
     "build:local": "vite build --mode development && tsc",
     "serve": "vite preview",
     "test": "vitest run",
-    "cf-typegen": "wrangler types --env-interface Env --env $CLOUDFLARE_ENV",
+    "cf-typegen": "wrangler types --env-interface Env --env production",
     "cf-typegen:local": "wrangler types --env-interface Env --env production",
     "deploy": "pnpm run build && wrangler deploy --env production"
   },
