@@ -5,12 +5,12 @@
   "scripts": {
     "dev": "vite --port 3000 --mode development",
     "start": "vite --port 3000",
-    "build": "npm run cf-typegen && vite build --mode $CLOUDFLARE_ENV && tsc",
+    "build": "pnpm run cf-typegen && vite build --mode $CLOUDFLARE_ENV && tsc",
     "build:local": "vite build --mode development && tsc",
     "serve": "vite preview",
     "test": "vitest run",
     "cf-typegen": "wrangler types --env-interface Env --env $CLOUDFLARE_ENV",
-    "cf-typegen:local": "wrangler types --env-interface Env --env stage",
+    "cf-typegen:local": "wrangler types --env-interface Env --env production",
     "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
