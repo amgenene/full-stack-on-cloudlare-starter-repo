@@ -11,7 +11,7 @@
     "test": "vitest run",
     "cf-typegen": "wrangler types --env-interface Env --env $CLOUDFLARE_ENV",
     "cf-typegen:local": "wrangler types --env-interface Env --env production",
-    "deploy": "npm run build && wrangler deploy"
+    "deploy": "pnpm run build && wrangler deploy --env production"
   },
   "dependencies": {
     "@better-auth/stripe": "1.3.4",
