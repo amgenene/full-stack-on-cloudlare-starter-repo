@@ -20,11 +20,11 @@ export const linksTrpcRoutes = t.router({
       }),
     )
     .query(async ({ctx, input}) => {
-      return await getLinks(ctx.userInfo.userId, input.offset?.toString());
+      return await getLinks(ctx.userId, input.offset?.toString());
     }),
   createLink: t.procedure.input(createLinkSchema).mutation(async ({ctx, input}) => {
     const id = await createLink({
-      accountId: ctx.userInfo.userId,
+      accountId: ctx.userId,
       ...input,
     });
     return id;
