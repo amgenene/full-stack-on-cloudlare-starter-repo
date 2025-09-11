@@ -6,7 +6,7 @@
 		"login": "wrangler login",
 		"@repo/data-ops": "workspace:*",
 		"deploy": "wrangler deploy --env $CF_ENVIRONMENT",
-		"build": "rm ./worker-configuration.d.ts && npm run cf-typegen",
+		"build": "npm run cf-typegen",
 		"dev": "wrangler dev --x-remote-bindings",
 		"start": "wrangler dev",
 		"test": "vitest",
