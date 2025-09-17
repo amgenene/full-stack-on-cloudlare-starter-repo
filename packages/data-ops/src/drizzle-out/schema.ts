@@ -1,4 +1,4 @@
-import { sqliteTable, AnySQLiteColumn, text, numeric, index, real } from "drizzle-orm/sqlite-core"
+import { sqliteTable, AnySQLiteColumn, text, numeric, index, real, integer, foreignKey, uniqueIndex } from "drizzle-orm/sqlite-core"
   import { sql } from "drizzle-orm"
 
 export const links = sqliteTable("links", {
@@ -35,4 +35,3 @@ export const destinationEvaluations = sqliteTable("destination_evaluations", {
 (table) => [
 	index("idx_destination_evaluations_account_time").on(table.accountId, table.createdAt),
 ]);
-

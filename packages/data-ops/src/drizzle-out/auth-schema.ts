@@ -5,23 +5,29 @@ export const user = sqliteTable("user", {
   name: text("name").notNull(),
   email: text("email").notNull().unique(),
   emailVerified: integer("email_verified", { mode: "boolean" })
-    .$defaultFn(() => false)
+    .default(false)
     .notNull(),
   image: text("image"),
   createdAt: integer("created_at", { mode: "timestamp" })
-    .$defaultFn(() => /* @__PURE__ */ new Date())
+    .defaultNow()
     .notNull(),
   updatedAt: integer("updated_at", { mode: "timestamp" })
-    .$defaultFn(() => /* @__PURE__ */ new Date())
+    .defaultNow()
+    .$onUpdate(() => /* @__PURE__ */ new Date())
     .notNull(),
+  stripeCustomerId: text("stripe_customer_id"),
 });
 
 export const session = sqliteTable("session", {
   id: text("id").primaryKey(),
   expiresAt: integer("expires_at", { mode: "timestamp" }).notNull(),
   token: text("token").notNull().unique(),
-  createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
-  updatedAt: integer("updated_at", { mode: "timestamp" }).notNull(),
+  createdAt: integer("created_at", { mode: "timestamp" })
+    .defaultNow()
+    .notNull(),
+  updatedAt: integer("updated_at", { mode: "timestamp" })
+    .$onUpdate(() => /* @__PURE__ */ new Date())
+    .notNull(),
   ipAddress: text("ip_address"),
   userAgent: text("user_agent"),
   userId: text("user_id")
@@ -47,8 +53,12 @@ export const account = sqliteTable("account", {
   }),
   scope: text("scope"),
   password: text("password"),
-  createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
-  updatedAt: integer("updated_at", { mode: "timestamp" }).notNull(),
+  createdAt: integer("created_at", { mode: "timestamp" })
+    .defaultNow()
+    .notNull(),
+  updatedAt: integer("updated_at", { mode: "timestamp" })
+    .$onUpdate(() => /* @__PURE__ */ new Date())
+    .notNull(),
 });
 
 export const verification = sqliteTable("verification", {
@@ -56,10 +66,26 @@ export const verification = sqliteTable("verification", {
   identifier: text("identifier").notNull(),
   value: text("value").notNull(),
   expiresAt: integer("expires_at", { mode: "timestamp" }).notNull(),
-  createdAt: integer("created_at", { mode: "timestamp" }).$defaultFn(
-    () => /* @__PURE__ */ new Date(),
-  ),
-  updatedAt: integer("updated_at", { mode: "timestamp" }).$defaultFn(
-    () => /* @__PURE__ */ new Date(),
-  ),
+  createdAt: integer("created_at", { mode: "timestamp" })
+    .defaultNow()
+    .notNull(),
+  updatedAt: integer("updated_at", { mode: "timestamp" })
+    .defaultNow()
+    .$onUpdate(() => /* @__PURE__ */ new Date())
+    .notNull(),
+});
+
+export const subscription = sqliteTable("subscription", {
+  id: text("id").primaryKey(),
+  plan: text("plan").notNull(),
+  referenceId: text("reference_id").notNull(),
+  stripeCustomerId: text("stripe_customer_id"),
+  stripeSubscriptionId: text("stripe_subscription_id"),
+  status: text("status").default("incomplete"),
+  periodStart: integer("period_start", { mode: "timestamp" }),
+  periodEnd: integer("period_end", { mode: "timestamp" }),
+  cancelAtPeriodEnd: integer("cancel_at_period_end", {
+    mode: "boolean",
+  }).default(false),
+  seats: integer("seats"),
 });

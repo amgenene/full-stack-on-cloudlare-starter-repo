@@ -300,7 +300,10 @@ importers:
         version: 5.1.5
       stripe:
         specifier: ^18.4.0
-        version: 18.4.0(@types/node@22.15.33)
+        version: 18.5.0(@types/node@22.15.33)
+      typescript:
+        specifier: ^5.9.2
+        version: 5.9.2
       uuid:
         specifier: ^11.1.0
         version: 11.1.0
@@ -320,9 +323,6 @@ importers:
       tsc-alias:
         specifier: ^1.8.16
         version: 1.8.16
-      typescript:
-        specifier: ^5.9.2
-        version: 5.9.2
       wrangler:
         specifier: ^4.22.0
         version: 4.22.0(@cloudflare/workers-types@4.20250628.0)
@@ -4001,8 +4001,8 @@ packages:
     resolution: {integrity: sha512-3Fs33IzKUby//9kCkCa1uRpinAoTvj6rJgQ2jrBEysoxEvfsclvXdna1amyEYbA2EKkjynuB4+L/kleCCaWTpA==}
     engines: {node: '>=12.*'}
 
-  stripe@18.4.0:
-    resolution: {integrity: sha512-LKFeDnDYo4U/YzNgx2Lc9PT9XgKN0JNF1iQwZxgkS4lOw5NunWCnzyH5RhTlD3clIZnf54h7nyMWkS8VXPmtTQ==}
+  stripe@18.5.0:
+    resolution: {integrity: sha512-Hp+wFiEQtCB0LlNgcFh5uVyKznpDjzyUZ+CNVEf+I3fhlYvh7rZruIg+jOwzJRCpy0ZTPMjlzm7J2/M2N6d+DA==}
     engines: {node: '>=12.*'}
     peerDependencies:
       '@types/node': '>=12.x.x'
@@ -8019,7 +8019,7 @@ snapshots:
       '@types/node': 22.15.33
       qs: 6.14.0
 
-  stripe@18.4.0(@types/node@22.15.33):
+  stripe@18.5.0(@types/node@22.15.33):
     dependencies:
       qs: 6.14.0
     optionalDependencies:
